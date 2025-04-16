@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/res"/>
+    <qresource prefix="/">
+        <file>img/compare64.png</file>
+    </qresource>
+</RCC>
