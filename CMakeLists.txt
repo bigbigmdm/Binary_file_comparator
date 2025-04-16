@@ -44,10 +44,12 @@ dialogcompare.h
 chunks.h
 mainwindow.ui
 dialogcompare.ui
+res.qrc
 	)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(${PROJECT_NAME} Qt5::Core)
 target_link_libraries(${PROJECT_NAME} Qt5::Widgets)
 
 install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
-
+install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/img/compare64.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/pixmaps")
+install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/other/FileComparator.desktop" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications")

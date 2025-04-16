@@ -1,0 +1,20 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=File_comparator
+Icon=/usr/share/pixmaps/compare64.png
+Exec=/usr/bin/BinaryFileComparer
+Path=/usr/bin/
+NoDisplay=false
+Categories=Electronics;Development;
+StartupNotify=true
+Terminal=false
+Comment=Binary file comparator
+Comment[en]=Binary file comparator
+Comment[ru]=Сравнение двоичных файлов
+GenericName=Binary file comparator
+GenericName[en]=Binary file comparator
+GenericName[ru]=Сравнение двоичных файлов
+Keywords=Compare;
+Keywords[en]=Compare;
+Keywords[ru]=Сравнить;
