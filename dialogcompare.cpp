@@ -86,8 +86,8 @@ void DialogCompare::showArrays(QByteArray *array1, QByteArray *array2, QString *
     hexEdit1->setData(data1);
     hexEdit2->setData(data2);
 
-    ui->label_n1->setText("Name: ");
-    ui->label_n2->setText("Name: ");
+    ui->label_n1->setText(tr("Name: "));
+    ui->label_n2->setText(tr("Name: "));
     ui->lineEdit_n1->setText(*name1);
     ui->lineEdit_n2->setText(*name2);
     ui->lineEdit_c1->setText(getCRC32(*array1));

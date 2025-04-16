@@ -69,7 +69,15 @@ void MainWindow::on_pushButton_f2_clicked()
 
 void MainWindow::on_pushButton_compare_clicked()
 {
-    DialogCompare* compDialog = new DialogCompare();
+    if ((name1.isEmpty() == false) and (name2.isEmpty() == false))
+    {
+        DialogCompare* compDialog = new DialogCompare();
         compDialog->show();
         compDialog->showArrays(&buf1, &buf2, &name1, &name2);
+    }
+    else
+    {
+        QMessageBox::about(this, tr("Error"), tr("This is nothing to compare with!\nPlease select `File1` and `File2` and press the `Compare` button again."));
+        return;
+    }
 }
