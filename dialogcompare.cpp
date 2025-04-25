@@ -230,7 +230,7 @@ QString DialogCompare::hexiAddr(uint32_t add)
 void DialogCompare::on_checkBox_stateChanged(int arg1)
 {
     QFontMetrics fm(hexEdit1->fontMetrics());
-    int pixelsHigh = fm.width("F");
+    int pixelsHigh =fm.horizontalAdvance("F");
     if (arg1 == 0)
     {
         hexEdit1->setAsciiArea(false);
