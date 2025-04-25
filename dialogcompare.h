@@ -17,6 +17,8 @@ private slots:
     void handleScroll1();
     void handleScroll2();
 
+    void on_checkBox_stateChanged(int arg1);
+
 public:
     explicit DialogCompare(QWidget *parent = nullptr);
     void showArrays(QByteArray *array1, QByteArray *array2, QString *name1, QString *name2);

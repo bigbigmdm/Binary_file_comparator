@@ -26,12 +26,10 @@ DialogCompare::DialogCompare(QWidget *parent) :
     hexEdit2->setGeometry(0,0,ui->frame_2->width(),ui->frame_2->height());
     hexEdit1->setReadOnly(true);
     hexEdit2->setReadOnly(true);
+    //ui->checkBox->setChecked(false);
+    ui->checkBox->setChecked(true);
 
     //Synchronise scrollbars
-    //connect(hexEdit1->verticalScrollBar(), &QScrollBar::valueChanged,
-    //hexEdit2->verticalScrollBar(), &QScrollBar::setValue);
-    //connect(hexEdit2->verticalScrollBar(), &QScrollBar::valueChanged,
-    //hexEdit1->verticalScrollBar(), &QScrollBar::setValue);
     connect(hexEdit1->verticalScrollBar(), &QScrollBar::valueChanged, this, &DialogCompare::handleScroll1);
     connect(hexEdit2->verticalScrollBar(), &QScrollBar::valueChanged, this, &DialogCompare::handleScroll2);
 
@@ -40,7 +38,7 @@ DialogCompare::DialogCompare(QWidget *parent) :
 
 void DialogCompare::handleScroll2()
 {
-    long posStart = 0, posEnd = 0;
+    long posStart = 0;
 
     posStart = hexEdit2->_bPosFirst;
     hexEdit1->setCursorPosition(posStart *2);
@@ -55,7 +53,7 @@ void DialogCompare::handleScroll1()
   int i;
 
   posStart = hexEdit1->_bPosFirst;
-  posEnd = hexEdit1->_bPosLast;
+  posEnd = hexEdit1->_bPosLast + 16;
 
   hexEdit1->clearUserAreas();
   hexEdit2->clearUserAreas();
@@ -93,8 +91,7 @@ void DialogCompare::showArrays(QByteArray *array1, QByteArray *array2, QString *
     ui->lineEdit_c1->setText(getCRC32(*array1));
     ui->lineEdit_c2->setText(getCRC32(*array2));
 
-    hexEdit1->verticalScrollBar()->setValue(1);
-    hexEdit1->verticalScrollBar()->setValue(0);
+    handleScroll1();
 }
 
 void DialogCompare::resizeEvent(QResizeEvent* event)
@@ -102,6 +99,7 @@ void DialogCompare::resizeEvent(QResizeEvent* event)
    QWidget::resizeEvent(event);
    hexEdit1->setGeometry(0,0,ui->frame_1->width(),ui->frame_1->height());
    hexEdit2->setGeometry(0,0,ui->frame_2->width(),ui->frame_2->height());
+   handleScroll1();
 }
 
 QString DialogCompare::printAddress(int address, int digits)
@@ -227,4 +225,22 @@ QString DialogCompare::hexiAddr(uint32_t add)
    A = 0xFF & add;
    rez = bytePrint(A) + bytePrint(B) + bytePrint(C) + bytePrint(D);
    return rez;
+}
+
+void DialogCompare::on_checkBox_stateChanged(int arg1)
+{
+    QFontMetrics fm(hexEdit1->fontMetrics());
+    int pixelsHigh = fm.width("F");
+    if (arg1 == 0)
+    {
+        hexEdit1->setAsciiArea(false);
+        hexEdit2->setAsciiArea(false);
+        DialogCompare::resize(pixelsHigh * 122, DialogCompare::height());
+    }
+    else
+    {
+        hexEdit1->setAsciiArea(true);
+        hexEdit2->setAsciiArea(true);
+        DialogCompare::resize(pixelsHigh * 153, DialogCompare::height());
+    }
 }
