@@ -12,14 +12,14 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-#include "mainwindow.h"
-#include <QApplication>
+#ifndef HEXUTILITY_H
+#define HEXUTILITY_H
 
-int main(int argc, char *argv[])
-{
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+#include <QString>
 
-    return a.exec();
-}
+QString getCRC32(QByteArray buf);
+QString hexiAddr(uint32_t add);
+QString printAddress(int address, int digits);
+QString bytePrint(unsigned char z);
+
+#endif // HEXUTILITY_H

@@ -31,7 +31,8 @@ SOURCES += \
     chunks.cpp \
     color_manager.cpp \
     qhexedit.cpp \
-    commands.cpp
+    commands.cpp \
+    hexutility.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -39,7 +40,8 @@ HEADERS += \
     chunks.h \
     commands.h \
     qhexedit.h \
-    color_manager.h
+    color_manager.h \
+    hexutility.h
 
 FORMS += \
         mainwindow.ui \

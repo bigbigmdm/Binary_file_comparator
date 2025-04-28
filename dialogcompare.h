@@ -1,9 +1,24 @@
+/*
+ * Copyright (C) 2024 - 2025 Mikhail Medvedev <e-ink-reader@yandex.ru>
+ *
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 3
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
 #ifndef DIALOGCOMPARE_H
 #define DIALOGCOMPARE_H
 
 #include <QDialog>
 #include <QResizeEvent>
 #include "qhexedit.h"
+#include "hexutility.h"
 
 namespace Ui {
 class DialogCompare;
@@ -27,10 +42,6 @@ public:
 private:
     Ui::DialogCompare *ui;
     void resizeEvent(QResizeEvent* event);
-    QString getCRC32(QByteArray buf);
-    QString hexiAddr(uint32_t add);
-    QString printAddress(int address, int digits);
-    QString bytePrint(unsigned char z);
     QHexEdit *hexEdit1, *hexEdit2;
     QByteArray data1, data2;
     //QByteArray arr1, arr2;

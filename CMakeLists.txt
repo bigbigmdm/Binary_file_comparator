@@ -35,6 +35,7 @@ qhexedit.cpp
 commands.cpp
 color_manager.cpp
 dialogcompare.cpp
+hexutility.cpp
 chunks.cpp
 mainwindow.h
 qhexedit.h
@@ -42,6 +43,7 @@ commands.h
 color_manager.h
 dialogcompare.h
 chunks.h
+hexutility.h
 mainwindow.ui
 dialogcompare.ui
 res.qrc
