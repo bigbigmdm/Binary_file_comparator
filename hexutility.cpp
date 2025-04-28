@@ -44,7 +44,7 @@ QString bytePrint(unsigned char z)
     return QString(s) + QString(z);
 }
 
-QString getCRC32(QByteArray buf)
+QString getCRC32(const QByteArray &buf)
 {
     uint32_t size, i;
     uint_least32_t crc = 0xFFFFFFFF;

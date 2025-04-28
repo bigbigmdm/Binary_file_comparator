@@ -17,7 +17,7 @@
 
 #include <QString>
 
-QString getCRC32(QByteArray buf);
+QString getCRC32(const QByteArray &buf);
 QString hexiAddr(uint32_t add);
 QString printAddress(int address, int digits);
 QString bytePrint(unsigned char z);
